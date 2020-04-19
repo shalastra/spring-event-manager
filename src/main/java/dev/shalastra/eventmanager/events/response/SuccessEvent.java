@@ -7,14 +7,14 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ResponseEvent implements Event {
+public class SuccessEvent implements Event {
 
     private EventType eventType;
     private boolean isPublic;
 
     private String message;
 
-    public ResponseEvent(Event event, String message) {
+    public SuccessEvent(Event event, String message) {
         this.eventType = event.getEventType();
         this.isPublic = event.isPublic();
 
