@@ -17,7 +17,7 @@ public class MessageManager implements Manager {
 
     private final Propagator propagator;
 
-    private final Map<EventType, Executor<Event>> functions;
+    private final Map<EventType, Processor<Event>> functions;
 
     @Override
     public void process(String sessionId, String payload) {
@@ -36,10 +36,10 @@ public class MessageManager implements Manager {
     private Function<Event, Event> handle() {
         return event -> {
             log.info("Handling the message...");
-            Executor<Event> executor = functions.get(event.getEventType());
+            Processor<Event> processor = functions.get(event.getEventType());
 
             log.info("Executing the event...");
-            return executor.apply(event);
+            return processor.apply(event);
         };
     }
 

@@ -13,12 +13,12 @@ import java.util.Map;
 class Config {
 
     @Bean
-    public <T extends Event> Map<EventType, Executor<T>> functions(List<Executor<T>> executorList) {
-        Map<EventType, Executor<T>> map = new EnumMap<>(EventType.class);
+    public <T extends Event> Map<EventType, Processor<T>> functions(List<Processor<T>> processorList) {
+        Map<EventType, Processor<T>> map = new EnumMap<>(EventType.class);
 
-        executorList.forEach(executor -> {
-            log.info("Adding new executor of type: {}", executor.getClass().getSimpleName());
-            map.put(executor.getEventType(), executor);
+        processorList.forEach(processor -> {
+            log.info("Adding new executor of type: {}", processor.getClass().getSimpleName());
+            map.put(processor.getEventType(), processor);
         });
 
         return map;
