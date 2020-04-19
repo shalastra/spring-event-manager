@@ -1,6 +1,6 @@
 package dev.shalastra.eventmanager.events.newmessage;
 
-import dev.shalastra.eventmanager.events.EEvent;
+import dev.shalastra.eventmanager.events.EventType;
 import dev.shalastra.eventmanager.events.Executor;
 import dev.shalastra.eventmanager.events.Message;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 class NewExecutor implements Executor<NewMessage> {
 
     @Getter
-    final EEvent eventType = EEvent.NEW;
+    final EventType eventType = EventType.NEW;
 
     @Override
     public Message apply(NewMessage newMessage) {

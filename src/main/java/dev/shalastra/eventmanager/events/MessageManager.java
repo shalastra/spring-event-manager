@@ -13,7 +13,7 @@ public class MessageManager implements Manager {
 
     private final Propagator propagator;
 
-    private final Map<EEvent, Executor<Message>> functions;
+    private final Map<EventType, Executor<Message>> functions;
 
     @Override
     public void process(String sessionId, String payload) {

@@ -8,13 +8,13 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 
 @RequiredArgsConstructor
-public enum EEvent {
+public enum EventType {
     NEW(NewParser::new),
     NOTHING(NothingParser::new);
 
     private final Supplier<Parser<? extends Message>> supplier;
 
-    public static EEvent of(String payload) {
+    public static EventType of(String payload) {
         return Arrays
                 .stream(values())
                 .filter(eEvent -> payload.contains(eEvent.name()))

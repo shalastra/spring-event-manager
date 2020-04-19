@@ -1,6 +1,6 @@
 package dev.shalastra.eventmanager.events.nothing;
 
-import dev.shalastra.eventmanager.events.EEvent;
+import dev.shalastra.eventmanager.events.EventType;
 import dev.shalastra.eventmanager.events.Executor;
 import dev.shalastra.eventmanager.events.Message;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class NothingExecutor implements Executor<NothingMessage> {
 
     @Getter
-    private final EEvent eventType = EEvent.NOTHING;
+    private final EventType eventType = EventType.NOTHING;
 
     @Override
     public Message apply(NothingMessage nothingMessage) {
