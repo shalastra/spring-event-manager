@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import static dev.shalastra.eventmanager.events.FunctionalUtils.applyAndAccept;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -16,10 +18,6 @@ public class MessageManager implements Manager {
     private final Propagator propagator;
 
     private final Map<EventType, Executor<Event>> functions;
-
-    static <T, R> Consumer<T> applyAndAccept(Function<? super T, ? extends R> f, Consumer<R> c) {
-        return t -> c.accept(f.apply(t));
-    }
 
     @Override
     public void process(String sessionId, String payload) {

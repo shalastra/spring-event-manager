@@ -1,7 +1,5 @@
 package dev.shalastra.eventmanager.events;
 
-public interface Event {
+public interface Event extends EventTypeDeclarable {
     boolean isPublic();
-
-    EventType getEventType();
 }
