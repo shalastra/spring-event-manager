@@ -8,12 +8,8 @@ import dev.shalastra.eventmanager.events.Parser;
 public class ErrorParser implements Parser<ErrorEvent> {
 
     @Override
-    public Event parse(String payload) {
+    public Event parse(String payload) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.readValue(payload, ErrorEvent.class);
-        } catch (JsonProcessingException e) {
-            return error(e.getMessage());
-        }
+        return mapper.readValue(payload, ErrorEvent.class);
     }
 }

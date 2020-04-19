@@ -22,6 +22,6 @@ public enum EventType {
     }
 
     public Event parse(String payload) {
-        return supplier.get().parse(payload);
+        return supplier.get().parseEvent(payload);
     }
 }
