@@ -1,4 +1,4 @@
-package dev.shalastra.eventmanager.events.nothing;
+package dev.shalastra.eventmanager.events.error;
 
 import dev.shalastra.eventmanager.events.Event;
 import dev.shalastra.eventmanager.events.EventType;
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class NothingProcessor implements Processor<NothingEvent> {
+public class ErrorProcessor implements Processor<ErrorEvent> {
 
     @Getter
     private final EventType eventType = EventType.NOTHING;
 
     @Override
-    public Event apply(NothingEvent nothingMessage) {
+    public Event apply(ErrorEvent nothingMessage) {
         log.info("Executing the following event: {}", nothingMessage.toString());
         return nothingMessage;
     }

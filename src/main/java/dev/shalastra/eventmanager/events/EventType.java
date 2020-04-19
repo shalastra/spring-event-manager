@@ -1,7 +1,7 @@
 package dev.shalastra.eventmanager.events;
 
+import dev.shalastra.eventmanager.events.error.ErrorParser;
 import dev.shalastra.eventmanager.events.newmessage.NewParser;
-import dev.shalastra.eventmanager.events.nothing.NothingParser;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 public enum EventType {
     NEW(NewParser::new),
-    NOTHING(NothingParser::new);
+    NOTHING(ErrorParser::new);
 
     private final Supplier<Parser<? extends Event>> supplier;
 
