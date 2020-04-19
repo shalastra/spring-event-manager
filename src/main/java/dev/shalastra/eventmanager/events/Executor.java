@@ -1,4 +1,4 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
 public interface Executor<T extends Message> {
     EEvent getEventType();

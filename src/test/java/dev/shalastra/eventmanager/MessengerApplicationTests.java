@@ -1,4 +1,4 @@
-package io.shalastra.messenger;
+package dev.shalastra.eventmanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

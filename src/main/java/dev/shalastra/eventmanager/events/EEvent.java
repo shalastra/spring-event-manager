@@ -1,7 +1,7 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
-import io.shalastra.messenger.events.newmessage.NewParser;
-import io.shalastra.messenger.events.nothing.NothingParser;
+import dev.shalastra.eventmanager.events.newmessage.NewParser;
+import dev.shalastra.eventmanager.events.nothing.NothingParser;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;

@@ -1,7 +1,7 @@
-package io.shalastra.messenger.events.newmessage;
+package dev.shalastra.eventmanager.events.newmessage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.shalastra.messenger.events.Parser;
+import dev.shalastra.eventmanager.events.Parser;
 import lombok.SneakyThrows;
 
 public class NewParser implements Parser<NewMessage> {

@@ -1,8 +1,8 @@
-package io.shalastra.messenger.events.newmessage;
+package dev.shalastra.eventmanager.events.newmessage;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.shalastra.messenger.events.EEvent;
-import io.shalastra.messenger.events.Message;
+import dev.shalastra.eventmanager.events.EEvent;
+import dev.shalastra.eventmanager.events.Message;
 import lombok.Data;
 
 @Data

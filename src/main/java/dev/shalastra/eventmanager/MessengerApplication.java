@@ -1,6 +1,6 @@
-package io.shalastra.messenger;
+package dev.shalastra.eventmanager;
 
-import io.shalastra.messenger.events.Manager;
+import dev.shalastra.eventmanager.events.Manager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

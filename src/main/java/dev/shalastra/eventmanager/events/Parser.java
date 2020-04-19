@@ -1,4 +1,4 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
 public interface Parser<T extends Message> {
 

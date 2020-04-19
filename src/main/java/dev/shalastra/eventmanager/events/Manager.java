@@ -1,4 +1,4 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
 public interface Manager {
     void process(String sessionId, String payload);

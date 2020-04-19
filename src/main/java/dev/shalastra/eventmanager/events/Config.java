@@ -1,4 +1,4 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package io.shalastra.messenger.events;
+package dev.shalastra.eventmanager.events;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
