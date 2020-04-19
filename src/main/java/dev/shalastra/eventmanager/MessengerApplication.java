@@ -18,11 +18,11 @@ public class MessengerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String nothingEvent = "{\"eventType\":\"NOTHING\", \"id\": 1}";
-        String newEvent = "{\"eventType\":\"NEW\"}";
+        String nothingEvent = "{\"eventType\":\"ERROR\"}";
+        String newEvent = "{\"eventType\":\"NEW\", \"id\": 1}";
 
-        messageManager.process(null, nothingEvent);
         messageManager.process(null, newEvent);
+        messageManager.process(null, "");
     }
 }
 

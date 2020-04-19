@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 public enum EventType {
     NEW(NewParser::new),
-    NOTHING(ErrorParser::new);
+    ERROR(ErrorParser::new);
 
     private final Supplier<Parser<? extends Event>> supplier;
 
@@ -18,7 +18,7 @@ public enum EventType {
         return Arrays
                 .stream(values())
                 .filter(eEvent -> payload.contains(eEvent.name()))
-                .findFirst().orElse(NOTHING);
+                .findFirst().orElse(ERROR);
     }
 
     public Event parse(String payload) {

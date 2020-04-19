@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class ErrorProcessor implements Processor<ErrorEvent> {
 
     @Getter
-    private final EventType eventType = EventType.NOTHING;
+    private final EventType eventType = EventType.ERROR;
 
     @Override
     public Event apply(ErrorEvent nothingMessage) {

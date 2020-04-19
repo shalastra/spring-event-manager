@@ -9,8 +9,12 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ErrorEvent implements Event {
 
-    private final EventType eventType = EventType.NOTHING;
+    private final EventType eventType = EventType.ERROR;
     private final boolean isPublic = true;
 
-    private Long id;
+    private String message;
+
+    public ErrorEvent(String message) {
+        this.message = message;
+    }
 }

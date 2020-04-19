@@ -11,4 +11,6 @@ class NewEvent implements Event {
 
     private final EventType eventType = EventType.NEW;
     private final boolean isPublic = false;
+
+    private Long id;
 }
