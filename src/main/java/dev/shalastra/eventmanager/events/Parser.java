@@ -2,6 +2,7 @@ package dev.shalastra.eventmanager.events;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dev.shalastra.eventmanager.events.error.ErrorEvent;
+import lombok.extern.slf4j.Slf4j;
 
 public interface Parser<T extends Event> {
 

@@ -21,8 +21,8 @@ public class MessengerApplication implements CommandLineRunner {
         String nothingEvent = "{\"eventType\":\"ERROR\"}";
         String newEvent = "{\"eventType\":\"NEW\", \"id\": 1}";
 
-        messageManager.process(null, newEvent);
-        messageManager.process(null, "");
+        messageManager.process(newEvent);
+        messageManager.process("");
     }
 }
 
