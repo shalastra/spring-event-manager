@@ -34,7 +34,6 @@ public class MessageManager implements Manager {
                 Assert.notNull(payload, "Payload cannot be null");
                 Assert.isTrue(!payload.isEmpty(), "Payload cannot be empty");
             } catch (IllegalArgumentException ex) {
-                log.error("ERROR: {}", ex.getMessage());
                 return new ErrorEvent(ex.getMessage());
             }
 
