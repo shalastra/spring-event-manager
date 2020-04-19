@@ -3,6 +3,7 @@ package dev.shalastra.eventmanager.events.newmessage;
 import dev.shalastra.eventmanager.events.Event;
 import dev.shalastra.eventmanager.events.EventType;
 import dev.shalastra.eventmanager.events.Processor;
+import dev.shalastra.eventmanager.events.response.ResponseEvent;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,6 @@ class NewProcessor implements Processor<NewEvent> {
     @Override
     public Event apply(NewEvent newMessage) {
         log.info("Executing the following event: {}", newMessage.toString());
-        return newMessage;
+        return new ResponseEvent(newMessage, "Processed");
     }
 }

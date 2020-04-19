@@ -15,7 +15,7 @@ import static dev.shalastra.eventmanager.events.FunctionalUtils.applyAndAccept;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class MessageManager implements Manager {
+public class EventManager implements Manager {
 
     private final Propagator propagator;
 
