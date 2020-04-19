@@ -1,4 +1,4 @@
-# EVENT MANAGER
+# SPRING EVENT MANAGER
 
 This simple project serves as a reader, processor and propagator of incoming JSON String messages.
 
