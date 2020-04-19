@@ -7,7 +7,7 @@ public interface Parser<T extends Event> {
 
     Event parse(String payload) throws JsonProcessingException;
 
-    default Event error(String message) {
+    private Event error(String message) {
         return new ErrorEvent(message);
     }
 
