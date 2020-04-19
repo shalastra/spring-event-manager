@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 @Slf4j
 @Service
@@ -15,28 +17,39 @@ public class MessageManager implements Manager {
 
     private final Map<EventType, Executor<Event>> functions;
 
+    static <T, R> Consumer<T> applyAndAccept(Function<? super T, ? extends R> f, Consumer<R> c) {
+        return t -> c.accept(f.apply(t));
+    }
+
     @Override
     public void process(String sessionId, String payload) {
         log.info("Processing the payload: {}", payload);
-        propagate(handle(read(payload)));
+
+        applyAndAccept(read().andThen(handle()), propagate()).accept(payload);
     }
 
-    private Event read(String payload) {
-        log.info("Converting the payload...");
-        return Converter.convert(payload);
+    private Function<String, Event> read() {
+        return payload -> {
+            log.info("Converting the payload...");
+            return Converter.convert(payload);
+        };
     }
 
-    private Event handle(Event event) {
-        log.info("Handling the message...");
-        Executor<Event> executor = functions.get(event.getEventType());
+    private Function<Event, Event> handle() {
+        return event -> {
+            log.info("Handling the message...");
+            Executor<Event> executor = functions.get(event.getEventType());
 
-        log.info("Executing the event...");
-        return executor.apply(event);
+            log.info("Executing the event...");
+            return executor.apply(event);
+        };
     }
 
-    private void propagate(Event event) {
-        log.info("Propagating the message...");
-        if (event.isPublic()) propagator.propagateToAll();
-        else propagator.propagate(null, null);
+    private Consumer<Event> propagate() {
+        return event -> {
+            log.info("Propagating the message...");
+            if (event.isPublic()) propagator.propagateToAll();
+            else propagator.propagate(null, null);
+        };
     }
 }
