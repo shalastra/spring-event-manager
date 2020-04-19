@@ -45,18 +45,24 @@ public class EventManager implements Manager {
     private Function<Event, Event> handle() {
         return event -> {
             log.info("Handling the message...");
-            Processor<Event> processor = functions.get(event.getEventType());
+            try {
+                Processor<Event> processor = functions.get(event.getEventType());
 
-            log.info("Executing the event...");
-            return processor.apply(event);
+                Assert.notNull(processor, "There is no processor with a matching event type.");
+
+                log.info("Executing the event...");
+                return processor.apply(event);
+            } catch (Exception e) {
+                return new ErrorEvent(e.getMessage());
+            }
         };
     }
 
     private Consumer<Event> propagate() {
         return event -> {
             log.info("Propagating the message...");
-            if (event.isPublic()) propagator.propagateToAll();
-            else propagator.propagate(null, null);
+            if (event.isPublic()) propagator.propagateToAll(event);
+            else propagator.propagate(event);
         };
     }
 }

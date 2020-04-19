@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Propagator {
 
-    public void propagateToAll() {
-        log.info("Propagate to all");
+    public void propagateToAll(Event event) {
+        log.info("Propagate to all: {}", event.toString());
     }
 
-    public void propagate(Object o1, Object o2) {
-        log.info("Propagate");
+    public void propagate(Event event) {
+        log.info("Propagate: {}", event.toString());
     }
 }
