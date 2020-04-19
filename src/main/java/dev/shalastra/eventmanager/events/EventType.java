@@ -12,7 +12,7 @@ public enum EventType {
     NEW(NewParser::new),
     NOTHING(NothingParser::new);
 
-    private final Supplier<Parser<? extends Message>> supplier;
+    private final Supplier<Parser<? extends Event>> supplier;
 
     public static EventType of(String payload) {
         return Arrays
@@ -21,7 +21,7 @@ public enum EventType {
                 .findFirst().orElse(NOTHING);
     }
 
-    public Message parse(String payload) {
+    public Event parse(String payload) {
         return supplier.get().parse(payload);
     }
 }

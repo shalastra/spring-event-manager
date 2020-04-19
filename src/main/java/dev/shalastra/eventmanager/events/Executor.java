@@ -1,7 +1,7 @@
 package dev.shalastra.eventmanager.events;
 
-public interface Executor<T extends Message> {
+public interface Executor<T extends Event> {
     EventType getEventType();
 
-    Message apply(T t);
+    Event apply(T t);
 }

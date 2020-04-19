@@ -1,6 +1,6 @@
 package dev.shalastra.eventmanager.events;
 
-public interface Parser<T extends Message> {
+public interface Parser<T extends Event> {
 
     T parse(String payload);
 }

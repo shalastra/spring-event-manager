@@ -13,7 +13,7 @@ public class MessageManager implements Manager {
 
     private final Propagator propagator;
 
-    private final Map<EventType, Executor<Message>> functions;
+    private final Map<EventType, Executor<Event>> functions;
 
     @Override
     public void process(String sessionId, String payload) {
@@ -21,22 +21,22 @@ public class MessageManager implements Manager {
         propagate(handle(read(payload)));
     }
 
-    private Message read(String payload) {
+    private Event read(String payload) {
         log.info("Converting the payload...");
         return Converter.convert(payload);
     }
 
-    private Message handle(Message message) {
+    private Event handle(Event event) {
         log.info("Handling the message...");
-        Executor<Message> executor = functions.get(message.getEventType());
+        Executor<Event> executor = functions.get(event.getEventType());
 
         log.info("Executing the event...");
-        return executor.apply(message);
+        return executor.apply(event);
     }
 
-    private void propagate(Message message) {
+    private void propagate(Event event) {
         log.info("Propagating the message...");
-        if (message.isPublic()) propagator.propagateToAll();
+        if (event.isPublic()) propagator.propagateToAll();
         else propagator.propagate(null, null);
     }
 }

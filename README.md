@@ -1,1 +1,1 @@
-# spring-message-manager
+# spring-event-manager
