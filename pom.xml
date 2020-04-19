@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.shalastra</groupId>
-    <artifactId>messenger</artifactId>
+    <artifactId>event-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>messenger</name>
+    <name>Event Manager</name>
 
     <properties>
         <java.version>11</java.version>
